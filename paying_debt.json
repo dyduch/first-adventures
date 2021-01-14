@@ -1,0 +1,43 @@
+{
+  "Title": "Splata dlugu", 
+  "Title_Generic": "", 
+  "Description": "Bohater splaca dlug.", 
+  "L_Side": {  
+    "Locations": [ 
+      {
+        "Id": "Jaskinia", 
+        "Attributes": { },
+        "Characters": [ 
+          {
+            
+            "Id": "Bohater",
+            "Attributes":
+            {
+                "Dlug":true
+            }, 
+            "Characters": [ ], 
+            "Items": 
+            [
+                {
+                    "Id": "Alkohol"
+                }
+            ]
+          },
+          {
+          	"Id": "Bandyci",
+            "Attributes":{}, 
+            "Characters": [ ], 
+            "Items": [ ]
+          }
+        ],
+        "Items": [ ],
+        "Connections": [ ]
+      }
+    ]
+  },
+  "R_Side": { }, 
+  "Instructions": [ 
+    { "op": "unset", "attribute": "Bohater.Dlug" },
+    { "op": "move", "node": "Bohater/Items/Alkohol", "to": "Bandyci/Items" }
+  ]
+}
