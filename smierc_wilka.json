@@ -1,0 +1,30 @@
+{
+  "Title": "Wolf drops skin / Z wilka wypada skóra wilka",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "LocationA",
+        "Characters": [
+          {
+            "Name": "Wilk",
+            "Id": "WolfA"
+          }
+        ]
+      }
+    ]
+  },
+  "Instructions": [
+    {
+      "op": "set",
+      "attribute": "WolfA.isDead",
+      "value": "true"
+    },
+    {
+      "op": "create",
+      "in": "Location/Items",
+      "node": {
+        "Name": "Wolf's Skin"
+      }
+    }
+  ]
+}
