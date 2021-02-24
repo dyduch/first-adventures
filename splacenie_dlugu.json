@@ -1,0 +1,53 @@
+{
+    "Title": "Splacenie dlugu",
+    "Title_Generic": "",
+    "Description": "Hero splaca dlug u Bandit poprzez danie butelki alkoholu",
+    "L_Side": {
+        "Locations": [
+            {
+                "Id": "LokacjaA",
+                "Attributes": {},
+                "Characters": [
+                    {
+                        "Name": "Hero",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": [
+                            {
+                                "Name": "Bottle with alcohol",
+                                "Attributes": {}
+                            }
+                        ],
+                        "Narration": [
+                            {
+                                "Name": "DebtToABandit",
+                                "Id": "",
+                                "Attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Bandit",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": []
+                    }
+                ],
+                "Items": [],
+                "Connections": []
+            }
+        ]
+    },
+    "R_Side": {},
+    "Instructions": [
+        {
+            "op": "move",
+            "node": "Hero/Items/Bottle with alcohol",
+            "to":  "Bandit/Items"
+        },
+        {
+            "op": "delete",
+            "node": "Hero/Narration/DebtToABandit"
+        }
+    ]
+}

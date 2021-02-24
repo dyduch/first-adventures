@@ -1,0 +1,47 @@
+{
+    "Title": "Wygrana z bandytami",
+    "Title_Generic": "",
+    "Description": "Hero wygrywa z Bandit i odzyskuje list",
+    "L_Side": {
+        "Locations": [
+            {
+                "Id": "LokacjaA",
+                "Attributes": {},
+                "Characters": [
+                    {
+                        "Name": "Hero",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": []
+                    },
+                    {
+                        "Name": "Bandit",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": [
+                            {
+                                "Name": "Letter",
+                                "Attributes": {}
+                            }
+                        ]
+                    }
+                ],
+                "Items": [],
+                "Connections": []
+            }
+        ]
+    },
+    "R_Side": {},
+    "Instructions": [
+        {
+            "op": "move",
+            "node": "Bandit/Items/Letter",
+            "to": "Hero/Items"
+        },
+        {
+            "op": "set",
+            "attribute": "Bandit.isDead",
+            "value": "true"
+          }
+    ]
+}

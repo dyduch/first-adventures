@@ -1,0 +1,52 @@
+{
+    "Title": "Nagroda za zabicie wilkow",
+    "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci",
+    "Description": "Hero otrzymuje 5 pieniedzy w ramach podziekowan Common man za zabicie wilkow",
+    "L_Side": {
+        "Locations": [
+            {
+                "Id": "LokacjaA",
+                "Attributes": {},
+                "Characters": [
+                    {
+                        "Name": "Hero",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": [
+                            {
+                                "Name": "Wolf's skin",
+                                "Attributes": {}
+                            },
+                            {
+                                "Name": "Wolf's skin",
+                                "Attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Common man",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": []
+                    }
+                ],
+                "Items": [],
+                "Connections": []
+            }
+        ]
+    },
+    "R_Side": {},
+    "Instructions": [
+        {
+            "op": "move",
+            "node": "Hero/Items/Wolf's skin",
+            "to": "Common man/Items"
+        },
+        {
+            "op": "move",
+            "node": "Hero/Items/Wolf's skin",
+            "to": "Common man/Items"
+        },
+        { "op": "set", "attribute": "Hero.Money", "expr": "Hero.Money + 5" }
+    ]
+}
