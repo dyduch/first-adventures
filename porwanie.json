@@ -1,0 +1,32 @@
+{
+  "Title": "Hero is kidnapped by bandits / Porwanie przez bandytów",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "LocationA",
+        "Characters": [
+          {
+            "Name": "Bohater",
+            "Id": "CharacterA",
+            "Attributes": {
+              "isWounded": "true"
+            }
+          },
+          {
+            "Name": "Bandyta"
+          },
+          {
+            "Name": "Bandyta"
+          }
+        ]
+      }
+    ]
+  },
+  "Instructions": [
+    {
+      "op": "set",
+      "attribute": "CharacterA.isKidnapped",
+      "value": "true"
+    }
+  ]
+}
