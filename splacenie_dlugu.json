@@ -1,7 +1,7 @@
 {
     "Title": "Splacenie dlugu",
     "Title_Generic": "",
-    "Description": "Hero splaca dlug u Bandit poprzez danie butelki alkoholu",
+    "Description": "Main_hero splaca dlug u Bandit poprzez danie butelki alkoholu",
     "L_Side": {
         "Locations": [
             {
@@ -9,12 +9,12 @@
                 "Attributes": {},
                 "Characters": [
                     {
-                        "Name": "Hero",
+                        "Name": "Main_hero",
                         "Attributes": {},
                         "Characters": [],
                         "Items": [
                             {
-                                "Name": "Bottle with alcohol",
+                                "Name": "Bottle_with_alcohol",
                                 "Attributes": {}
                             }
                         ],
@@ -42,7 +42,7 @@
     "Instructions": [
         {
             "op": "move",
-            "node": "Hero/Items/Bottle with alcohol",
+            "node": "Hero/Items/Bottle_with_alcohol",
             "to":  "Bandit/Items"
         },
         {
