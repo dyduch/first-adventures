@@ -1,0 +1,462 @@
+[
+    {
+        "Title": "Attack bandits with knife",
+        "Title_Generic": "Character A attack and kill character B",
+        "Description": "Bohater atakuje bandytow w jaskini nozem",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "cave",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "knife",
+                                    "Attributes": {}
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "letter",
+                                    "Attributes": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/items/letter",
+                "to": "main_hero/items"
+            },
+            {
+                "op": "set",
+                "attribute": "bandit.isDead",
+                "value": "true"
+              }
+        ]
+    },
+    {
+        "Title": "Bribe the bandits",
+        "Title_Generic": "",
+        "Description": "Bohater przekupuje bandytow celem odzyskania listu",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "cave",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        },
+                        {
+                            "Name": "bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "letter",
+                                    "Attributes": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/items/letter",
+                "to":  "main_hero/items"
+            },
+            {
+                "op": "set",
+                "node": "main_hero/attributes/DebtToABandit"
+            },
+            {
+                "op": "create",
+                "node": "main_hero/narration/KnowledgeAboutDebt"
+            }
+        ]
+    },
+    {
+        "Title": "Nagroda za zabicie wilkow",
+        "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci",
+        "Description": "Main_hero otrzymuje 5 pieniedzy w ramach podziekowan Common_man za zabicie wilkow",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Id": "LokacjaA",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "Main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "Wolfs_skin",
+                                    "Attributes": {}
+                                },
+                                {
+                                    "Name": "Wolfs_skin",
+                                    "Attributes": {}
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Common_man",
+                            "Comment":"Nie wymagamy pieniedzy zeby zapobiec sytuacji kiedy nie da sie odebrac nagrody (pieniadze powstaja)",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "Main_hero/Items/Wolfs_skin",
+                "to": "Common man/Items"
+            },
+            {
+                "op": "move",
+                "node": "Main_hero/Items/Wolfs_skin",
+                "to": "Common_man/Items"
+            },
+            { "op": "set", "attribute": "Hero.Money", "expr": "Hero.Money + 5" }
+        ]
+    },
+    {
+        "Title": "Drink alcohol with friend",
+        "Title_Generic": "",
+        "Description": "Bohater wypija butelke alkoholu z przyjacielem",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "harbor",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "alcohol",
+                                    "Attributes": {}
+                                }
+                            ],
+                            "Narration": []
+                        },
+                        {
+                            "Name": "friend",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "delete",
+                "node": "main_hero/items/alcohol"
+            },
+            {
+                "op": "move",
+                "node": "friend",
+                "to": "main_hero/characters"
+            },
+            {
+                "op": "set",
+                "node": "friend/attributes/isFriendToMainHero",
+                "to": "true"
+            }
+        ]
+    },
+    {
+        "Title": "Main hero is kidnapped by bandits / Porwanie przez bandytów",
+        "L_Side": {
+            "Locations": [
+            {
+                "Id": "LocationA",
+                "Characters": [
+                {
+                    "Name": "main_hero",
+                    "Attributes": {
+                    "isWounded": "true"
+                    }
+                },
+                {
+                    "Name": "bandit"
+                }
+                ]
+            }
+            ]
+        },
+        "Instructions": [
+            {
+            "op": "move",
+            "nodes": "main_hero",
+            "to": "bandit/Characters",
+            "comment": "this represents that Hero is abducted by BanditA"
+            }
+        ]
+    },
+    {
+        "Title": "Killing a wolf / zabicie wilka",
+        "Title_Generic": "",
+        "Description": "Zabijamy wilka, z którego możemy następnie zebrać skórę",
+        "L_Side": {
+            "Locations": [
+            {
+                "Id": "LocationA",
+                "Characters": [
+                {
+                    "Name": "main_hero"
+                },
+                {
+                    "Name": "wolf",
+                    "Attributes": {
+                    "isDead": "false"
+                    }
+                }
+                ]
+            }
+            ]
+        },
+        "Instructions": [
+            {
+            "op": "set",
+            "attribute": "wolf.isDead",
+            "value": "true"
+            },
+            {
+            "op": "create",
+            "in": "Location/Items",
+            "node": {
+                "Name": "wolfs_skin"
+            }
+            }
+        ]
+    },
+    {
+        "Title": "Make bandits argue",
+        "Title_Generic": "",
+        "Description": "Bohater odwraca uwage bandytow i kradnie list",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "cave",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                          "Name": "bandit",
+                          "Characters": [
+                            {
+                              "Name": "main_hero",
+                              "Attributes": {},
+                              "Characters": [],
+                              "Items": []
+                            }
+                          ]
+                        },
+                        {
+                            "Name": "bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "letter",
+                                    "Attributes": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/items/letter",
+                "to":  "main_hero/items"
+            },
+            {
+                "op": "set",
+                "node": "bandit/attributes/isDistracted"
+            }
+        ]
+    },
+    {
+        "Title": "Splacenie dlugu",
+        "Title_Generic": "",
+        "Description": "Main_hero splaca dlug u Bandit poprzez danie butelki alkoholu",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Id": "LokacjaA",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "Main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "Bottle_with_alcohol",
+                                    "Attributes": {}
+                                }
+                            ],
+                            "Narration": [
+                                {
+                                    "Name": "DebtToABandit",
+                                    "Id": "",
+                                    "Attributes": {}
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "Hero/Items/Bottle_with_alcohol",
+                "to":  "Bandit/Items"
+            },
+            {
+                "op": "delete",
+                "node": "Hero/Narration/DebtToABandit"
+            }
+        ]
+    },
+    {
+        "Title": "Pomoc Merchant",
+        "Title_Generic": "",
+        "Description": "Main_hero pomaga Merchant w sprzataniu, znajduje dziwny kawalek metalu oraz otrzymuje wytrych w nagrode",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "Market",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "Main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [],
+                            "Narration": []
+                        },
+                        {
+                            "Name": "Merchant",
+                            "Attributes": {
+                                "Has_mess_in_store":true
+                            },
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name":"Picklock"
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [
+                        {
+                            "Name":"Strange_piece_of_metal"
+                        }
+                    ],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "Market/Items/Strange_piece_of_metal",
+                "to":  "Main_hero/Items"
+            },
+            {
+                "op": "move",
+                "node": "Merchant/Items/Picklock",
+                "to": "Main_hero/Items"
+            },
+            {
+                "op": "set",
+                "attribute": "Merchant.Has_mess_in_store",
+                "value": false
+            }
+        ]
+    },
+    {
+        "Title": "Main hero gets wounded / Główny bohater zostaje zraniony",
+        "Title_Generic": "",
+        "L_Side": {
+            "Locations": [
+            {
+                "Characters": [
+                {
+                    "Name": "main_hero"
+                },
+                {
+                    "Id": "CharacterB"
+                }
+                ]
+            }
+            ]
+        },
+        "Instructions": [
+            {
+            "op": "set",
+            "attribute": "main_hero.isWounded",
+            "value": "true"
+            }
+        ]
+    }
+]
