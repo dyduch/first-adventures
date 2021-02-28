@@ -1,11 +1,13 @@
 {
-  "Title": "Character gets wounded / Bohater zostaje zraniony",
+  "Title": "Main hero gets wounded / Główny bohater zostaje zraniony",
+  "Title_Generic": "",
   "L_Side": {
     "Locations": [
       {
         "Characters": [
           {
-            "Id": "CharacterA"
+            "Id": "CharacterA",
+            "Name": "main_hero"
           },
           {
             "Id": "CharacterB"
