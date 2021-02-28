@@ -1,0 +1,29 @@
+{
+  "Title": "Main hero is kidnapped by bandits / Porwanie przez bandytów",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "LocationA",
+        "Characters": [
+          {
+            "Name": "main_hero",
+            "Attributes": {
+              "isWounded": "true"
+            }
+          },
+          {
+            "Name": "bandit"
+          }
+        ]
+      }
+    ]
+  },
+  "Instructions": [
+    {
+      "op": "move",
+      "nodes": "main_hero",
+      "to": "bandit/Characters",
+      "comment": "this represents that Hero is abducted by BanditA"
+    }
+  ]
+}

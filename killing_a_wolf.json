@@ -1,0 +1,37 @@
+{
+  "Title": "Killing a wolf / zabicie wilka",
+  "Title_Generic": "",
+  "Description": "Zabijamy wilka, z którego możemy następnie zebrać skórę",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "LocationA",
+        "Characters": [
+          {
+            "Name": "main_hero"
+          },
+          {
+            "Name": "wolf",
+            "Attributes": {
+              "isDead": "false"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Instructions": [
+    {
+      "op": "set",
+      "attribute": "wolf.isDead",
+      "value": "true"
+    },
+    {
+      "op": "create",
+      "in": "Location/Items",
+      "node": {
+        "Name": "wolfs_skin"
+      }
+    }
+  ]
+}
