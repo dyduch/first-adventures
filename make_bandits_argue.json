@@ -10,10 +10,15 @@
                     "Attributes": {},
                     "Characters": [
                         {
-                            "Name": "main_hero",
-                            "Attributes": {},
-                            "Characters": [],
-                            "Items": []
+                          "Name": "bandit",
+                          "Characters": [
+                            {
+                              "Name": "main_hero",
+                              "Attributes": {},
+                              "Characters": [],
+                              "Items": []
+                            }
+                          ]
                         },
                         {
                             "Name": "bandit",
@@ -41,7 +46,7 @@
             },
             {
                 "op": "set",
-                "node": "bandit/attributes/is_distracted",
-            },
+                "node": "bandit/attributes/is_distracted"
+            }
         ]
     }
