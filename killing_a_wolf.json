@@ -11,7 +11,7 @@
             "Name": "main_hero"
           },
           {
-            "Name": "Wilk",
+            "Name": "wolf",
             "Id": "WolfA",
             "Attributes": {
               "isDead": "false"
@@ -31,7 +31,7 @@
       "op": "create",
       "in": "Location/Items",
       "node": {
-        "Name": "Wolf's Skin"
+        "Name": "wolfs_skin"
       }
     }
   ]
