@@ -1,13 +1,21 @@
 {
-  "Title": "Wolf drops skin / Z wilka wypada skóra wilka",
+  "Title": "Killing a wolf / zabicie wilka",
+  "Title_Generic": "",
+  "Description": "Zabijamy wilka, z którego możemy następnie zebrać skórę",
   "L_Side": {
     "Locations": [
       {
         "Id": "LocationA",
         "Characters": [
           {
+            "Name": "main_hero"
+          },
+          {
             "Name": "Wilk",
-            "Id": "WolfA"
+            "Id": "WolfA",
+            "Attributes": {
+              "isDead": "false"
+            }
           }
         ]
       }
