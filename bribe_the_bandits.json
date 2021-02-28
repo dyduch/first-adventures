@@ -5,22 +5,22 @@
         "L_Side": {
             "Locations": [
                 {
-                    "Name": "Jaskinia",
+                    "Name": "cave",
                     "Attributes": {},
                     "Characters": [
                         {
-                            "Name": "Hero",
+                            "Name": "main_hero",
                             "Attributes": {},
                             "Characters": [],
                             "Items": []
                         },
                         {
-                            "Name": "Bandit",
+                            "Name": "bandit",
                             "Attributes": {},
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "Letter",
+                                    "Name": "letter",
                                     "Attributes": {}
                                 }
                             ]
@@ -35,12 +35,16 @@
         "Instructions": [
             {
                 "op": "move",
-                "node": "Bandit/Items/Letter",
-                "to":  "Hero/Items"
+                "node": "bandit/items/letter",
+                "to":  "main_hero/items"
             },
             {
                 "op": "set",
-                "node": "Hero/Narration/DebtToABandit"
+                "node": "main_hero/attributes/debt_to_a_bandit"
+            },
+            {
+                "op": "create",
+                "node": "main_hero/narration/knowledge_about_debt"
             }
         ]
     }
