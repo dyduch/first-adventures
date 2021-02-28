@@ -6,7 +6,6 @@
       {
         "Characters": [
           {
-            "Id": "CharacterA",
             "Name": "main_hero"
           },
           {
@@ -19,7 +18,7 @@
   "Instructions": [
     {
       "op": "set",
-      "attribute": "CharacterA.isWounded",
+      "attribute": "main_hero.isWounded",
       "value": "true"
     }
   ]

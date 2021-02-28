@@ -12,7 +12,6 @@
           },
           {
             "Name": "wolf",
-            "Id": "WolfA",
             "Attributes": {
               "isDead": "false"
             }
@@ -24,7 +23,7 @@
   "Instructions": [
     {
       "op": "set",
-      "attribute": "WolfA.isDead",
+      "attribute": "wolf.isDead",
       "value": "true"
     },
     {

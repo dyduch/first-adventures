@@ -7,14 +7,9 @@
         "Characters": [
           {
             "Name": "main_hero",
-            "Id": "Hero",
             "Attributes": {
               "isWounded": "true"
             }
-          },
-          {
-            "Name": "bandit",
-            "Id": "BanditA"
           },
           {
             "Name": "bandit"
@@ -26,8 +21,8 @@
   "Instructions": [
     {
       "op": "move",
-      "nodes": "Hero",
-      "to": "BanditA/Characters",
+      "nodes": "main_hero",
+      "to": "bandit/Characters",
       "comment": "this represents that Hero is abducted by BanditA"
     }
   ]
