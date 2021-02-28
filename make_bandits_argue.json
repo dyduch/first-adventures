@@ -1,0 +1,47 @@
+
+ {
+        "Title": "Make bandits argue",
+        "Title_Generic": "",
+        "Description": "Bohater odwraca uwage bandytow i kradnie list",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "cave",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        },
+                        {
+                            "Name": "bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "letter",
+                                    "Attributes": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/items/letter",
+                "to":  "main_hero/items"
+            },
+            {
+                "op": "set",
+                "node": "bandit/attributes/is_distracted",
+            },
+        ]
+    }

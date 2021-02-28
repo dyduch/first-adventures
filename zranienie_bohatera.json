@@ -1,0 +1,24 @@
+{
+  "Title": "Character gets wounded / Bohater zostaje zraniony",
+  "L_Side": {
+    "Locations": [
+      {
+        "Characters": [
+          {
+            "Id": "CharacterA"
+          },
+          {
+            "Id": "CharacterB"
+          }
+        ]
+      }
+    ]
+  },
+  "Instructions": [
+    {
+      "op": "set",
+      "attribute": "CharacterA.isWounded",
+      "value": "true"
+    }
+  ]
+}

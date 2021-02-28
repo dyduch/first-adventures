@@ -1,0 +1,58 @@
+{
+    "Title": "Pomoc Merchant",
+    "Title_Generic": "",
+    "Description": "Main_hero pomaga Merchant w sprzataniu, znajduje dziwny kawalek metalu oraz otrzymuje wytrych w nagrode",
+    "L_Side": {
+        "Locations": [
+            {
+                "Name": "Market",
+                "Attributes": {},
+                "Characters": [
+                    {
+                        "Name": "Main_hero",
+                        "Attributes": {},
+                        "Characters": [],
+                        "Items": [],
+                        "Narration": []
+                    },
+                    {
+                        "Name": "Merchant",
+                        "Attributes": {
+                            "Has_mess_in_store":true
+                        },
+                        "Characters": [],
+                        "Items": [
+                            {
+                                "Name":"Picklock"
+                            }
+                        ]
+                    }
+                ],
+                "Items": [
+                    {
+                        "Name":"Strange_piece_of_metal"
+                    }
+                ],
+                "Connections": []
+            }
+        ]
+    },
+    "R_Side": {},
+    "Instructions": [
+        {
+            "op": "move",
+            "node": "Market/Items/Strange_piece_of_metal",
+            "to":  "Main_hero/Items"
+        },
+        {
+            "op": "move",
+            "node": "Merchant/Items/Picklock",
+            "to": "Main_hero/Items"
+        },
+        {
+            "op": "set",
+            "attribute": "Merchant.Has_mess_in_store",
+            "value": false
+        }
+    ]
+}

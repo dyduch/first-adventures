@@ -1,0 +1,50 @@
+ {
+        "Title": "Bribe the bandits",
+        "Title_Generic": "",
+        "Description": "Bohater przekupuje bandytow celem odzyskania listu",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "cave",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        },
+                        {
+                            "Name": "bandit",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "letter",
+                                    "Attributes": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/items/letter",
+                "to":  "main_hero/items"
+            },
+            {
+                "op": "set",
+                "node": "main_hero/attributes/debt_to_a_bandit"
+            },
+            {
+                "op": "create",
+                "node": "main_hero/narration/knowledge_about_debt"
+            }
+        ]
+    }

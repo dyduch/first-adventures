@@ -1,0 +1,273 @@
+[
+{
+  "Title": "Location change / Zmiana lokacji", 
+  "Title_Generic": "", 
+ 
+  "Description": "Bohater przechodzi z lokacji A do lokacji B.", 
+  "L_Side": {  
+    "Locations": [ 
+      {
+        
+        "Id": "LokacjaA", 
+        "Attributes": { },
+        "Characters": [ 
+          {
+            
+            "Id": "Bohater",
+            "Attributes": {  }, 
+            "Characters": [ ], 
+            "Items": [ ]
+          }
+        ],
+        "Items": [ ],
+        "Connections": [ 
+          { "Destination": "LokacjaB" }
+        ]
+      },
+      {
+       
+        "Id": "LokacjaB", 
+        "Connections": [ 
+
+        ]      }
+    ]
+  },
+  "R_Side": { }, 
+
+  "Instructions": [ 
+    { "op": "move", "node": "Bohater", "to": "LokacjaB/Characters" }          
+  ]
+  
+},
+{
+  "Title": "Fight with attacked one escape / Walka z ucieczką zaatakowanego", 
+  "Title_Generic": "Location change / Zmiana lokacji", 
+ 
+  "Description": "Bohater A atakuje Bohatera B, który ucieka do Lokacji B.", 
+  "L_Side": {  
+    "Locations": [ 
+      {
+        
+        "Id": "LokacjaA", 
+        "Attributes": { },
+        "Characters": [ 
+          {
+            
+            "Id": "BohaterA",
+            "Attributes": {  }, 
+            "Characters": [ ], 
+            "Items": [ ]
+          },
+          {
+            
+            "Id": "BohaterB",
+            "Attributes": {  }, 
+            "Characters": [ ], 
+            "Items": [ ]
+          }
+        ],
+        "Items": [ ],
+        "Connections": [ 
+          { "Destination": "LokacjaB" }
+        ]
+      },
+      {
+        
+        "Id": "LokacjaB", 
+        "Connections": [ 
+
+        ]      }
+    ]
+  },
+  "R_Side": { }, 
+
+  "Instructions": [ 
+    { "op": "move", "node": "BohaterB/Items/*", "to": "LokacjaA/Items" },          
+    { "op": "move", "node": "BohaterB", "to": "LokacjaB/Characters" }  
+           
+  ]
+  
+},
+{
+  "Title": "Character A attack and kill character B / Walka ze śmiercią uczestnika",
+  "Title_Generic": "Character’s attribute change",
+  "Description": "",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "Somwhere",
+        "Attributes": {},
+        "Characters": [
+          {
+            "Id": "Character A",
+            "Attributes": {},
+            "Items": []
+          },
+          {
+            "Id": "Character B",
+            "Attributes": {},
+            "Characters": [],
+            "Items": []
+          }
+        ],
+        "Items": [],
+        "Connections": []
+      }
+    ]
+  },
+  "R_Side": {},
+  "Instructions": [
+    {
+      "op": "set",
+      "attribute": "CharacterB.isDead",
+      "value": "true"
+    },
+    {
+      "op": "move",
+      "node": "CharacterB/Items/*",
+      "to": "Somwhere"
+    }
+  ]
+},
+{
+  "Title": "Item acquireing from other character / Przejęcie obiektu od innej postaci", 
+  "Title_Generic": "", 
+
+  "Description": "Jeden z Bohaterów oddaje drugiemu przedmiot", 
+  "L_Side": {  
+    "Locations": [ 
+      {
+        "Id": "Gdzieś",
+
+        "Attributes": { },
+        "Characters": [ 
+          {
+            "Id": "BohaterA",
+            "Attributes": {
+            }
+          },
+          {
+            "Id": "BohaterB",
+
+            "Attributes": {  }, 
+            "Characters": [ ], 
+            "Items": [ 
+              {
+              "Id":"Coś",
+              "Attributes": {
+              }
+              }]
+          }
+       
+        ],
+        "Items": [ ],
+        "Connections": [  ]
+      }
+
+    ]
+  },
+  "R_Side": { }, 
+
+  "Preconditions": [
+
+],
+"Instructions": [
+    { "op": "move", "node": "Coś", "to": "BohaterA/Items" }
+]
+  
+},
+{
+  "Title": "Sale agreement / Transakcja kupna-sprzedaży", 
+  "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci", 
+  "Description": "Sprzedający sprzedaje Kupującemu Coś.", 
+  "L_Side": {  
+    "Locations": [ 
+      {
+        "Id": "Gdzieś",
+
+        "Attributes": { },
+        "Characters": [ 
+          {
+            "Id": "Kupujący",
+            "Attributes": {
+              "Money":null
+            }
+          },
+          {
+            "Id": "Sprzedający",
+
+            "Attributes": {  }, 
+            "Characters": [ ], 
+            "Items": [ 
+              {
+              "Id":"Coś",
+              "Attributes": {
+                "Value":null
+              }
+              }]
+          }
+       
+        ],
+        "Items": [ ],
+        "Connections": [  ]
+      }
+
+    ]
+  },
+  "R_Side": { }, 
+
+  "Preconditions": [
+    { "cond": "Kupujący.Money >= Coś.Value" }
+
+],
+"Instructions": [
+    { "op": "move", "node": "Coś", "to": "Kupujący/Items" },
+    { "op": "set", "attribute": "Kupujący.Money", "expr": "Kupujący.Money - Coś.Value" },
+    { "op": "set", "attribute": "Sprzedający.Money", "expr": "Sprzedający.Money + Coś.Value" }
+]
+  
+},
+
+{
+  "Title": "Przekształcenie przedmiotu w atrybut bohatera", 
+  "Title_Generic": ""
+  
+},
+
+{
+  "Title": "Character is picking up item from location / Podniesienie przedmiotu",
+  "Title_Generic": "",
+  "Description": "",
+  "L_Side": {
+    "Locations": [
+      {
+        "Id": "Somwhere",
+        "Attributes": {},
+        "Characters": [
+          {
+            "Id": "Character A",
+            "Attributes": {},
+            "Items": []
+          }
+        ],
+        "Items": [
+          {
+            "Id": "Coś"
+          }
+
+        ],
+        "Connections": []
+      }
+    ]
+  },
+  "R_Side": {},
+  "Instructions": [
+    {
+      "op": "move",
+      "node": "Coś",
+      "to": "Character/Items"
+    }
+  ]
+}
+
+]

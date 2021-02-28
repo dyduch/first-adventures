@@ -1,0 +1,52 @@
+ {
+        "Title": "Drink alcohol with friend",
+        "Title_Generic": "",
+        "Description": "Bohater wypija butelke alkoholu z przyjacielem",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Name": "harbor",
+                    "Attributes": {},
+                    "Characters": [
+                        {
+                            "Name": "main_hero",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": [
+                                {
+                                    "Name": "alcohol",
+                                    "Attributes": {}
+                                }
+                            ],
+                            "Narration": []
+                        },
+                        {
+                            "Name": "friend",
+                            "Attributes": {},
+                            "Characters": [],
+                            "Items": []
+                        }
+                    ],
+                    "Items": [],
+                    "Connections": []
+                }
+            ]
+        },
+        "R_Side": {},
+        "Instructions": [
+            {
+                "op": "delete",
+                "node": "main_hero/items/alcohol"
+            },
+            {
+                "op": "move",
+                "node": "friend",
+                "to": "main_hero/characters"
+            },
+            {
+                "op": "set",
+                "node": "friend/attributes/is_friend_to_main_hero",
+                "to": "true"
+            }
+        ]
+    }
