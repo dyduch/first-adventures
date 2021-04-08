@@ -1,8 +1,8 @@
 [
     {
-        "Title": "Attack bandits with knife",
+        "Title": "Attack bandits with a knife / Atak na bandytów nożem",
         "Title_Generic": "Character A attack and kill character B",
-        "Description": "Bohater atakuje bandytow w jaskini nozem",
+        "Description": "Bohater atakuje bandytow w jaskini nożem",
         "L_Side": {
             "Locations": [
                 {
@@ -10,20 +10,21 @@
                     "Attributes": {},
                     "Characters": [
                         {
-                            "Name": "main_hero",
-                            "Attributes": {},
-                            "Characters": [],
-                            "Items": [
-                                {
-                                    "Name": "knife",
-                                    "Attributes": {}
-                                }
-                            ]
-                        },
-                        {
                             "Name": "bandit",
                             "Attributes": {},
-                            "Characters": [],
+                            "Characters": [
+                                {
+                                    "Name": "main_hero",
+                                    "Attributes": {},
+                                    "Characters": [],
+                                    "Items": [
+                                        {
+                                            "Name": "knife",
+                                            "Attributes": {}
+                                        }
+                                    ]
+                                }
+                            ],
                             "Items": [
                                 {
                                     "Name": "document",
@@ -39,6 +40,11 @@
         },
         "R_Side": {},
         "Instructions": [
+            {
+                "op": "move",
+                "node": "bandit/characters/main_hero",
+                "to": "cave/characters"
+            },
             {
                 "op": "move",
                 "node": "bandit/items/document",
@@ -62,15 +68,16 @@
                     "Attributes": {},
                     "Characters": [
                         {
-                            "Name": "main_hero",
-                            "Attributes": {},
-                            "Characters": [],
-                            "Items": []
-                        },
-                        {
                             "Name": "bandit",
                             "Attributes": {},
-                            "Characters": [],
+                            "Characters": [
+                                {
+                                    "Name": "main_hero",
+                                    "Attributes": {},
+                                    "Characters": [],
+                                    "Items": []
+                                }
+                            ],
                             "Items": [
                                 {
                                     "Name": "document",
@@ -92,19 +99,24 @@
                 "to":  "main_hero/items"
             },
             {
-                "op": "set",
-                "node": "main_hero/attributes/DebtToABandit"
+                "op": "create",
+                "in": "main_hero/Narration",
+                "node": {
+                    "Name":"debt_to_a_bandit",
+                    "Attributes": {"Knowledge": "Mam dług u bandytów"}
+                }
             },
             {
-                "op": "create",
-                "node": "main_hero/narration/KnowledgeAboutDebt"
+                "op": "move",
+                "node": "bandit/characters/main_hero",
+                "to":  "cave/characters"
             }
         ]
     },
     {
         "Title": "Reward for killing wolves / Nagroda za zabicie wilkow",
         "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci",
-        "Description": "Main_hero otrzymuje 5 pieniedzy w ramach podziekowan Common_man za zabicie wilkow",
+        "Description": "Główny bohater otrzymuje 5 pieniedzy w ramach podziekowań od chłopa za zabicie wilkow",
         "L_Side": {
             "Locations": [
                 {
@@ -144,7 +156,7 @@
             {
                 "op": "move",
                 "node": "Main_hero/Items/Wolfs_skin",
-                "to": "Common man/Items"
+                "to": "Common_man/Items"
             },
             {
                 "op": "move",
@@ -161,7 +173,7 @@
         "L_Side": {
             "Locations": [
                 {
-                    "Name": "harbor",
+                    "Name": "port",
                     "Attributes": {},
                     "Characters": [
                         {
@@ -264,11 +276,11 @@
             "value": "true"
             },
             {
-            "op": "create",
-            "in": "Location/Items",
-            "node": {
-                "Name": "wolfs_skin"
-            }
+                "op": "create",
+                "in": "Location/Items",
+                "node": {
+                    "Name": "wolfs_skin"
+                }
             }
         ]
     },
@@ -345,7 +357,7 @@
                             ],
                             "Narration": [
                                 {
-                                    "Name": "DebtToABandit",
+                                    "Name": "debt_to_a_bandit",
                                     "Id": "",
                                     "Attributes": {}
                                 }
@@ -372,7 +384,7 @@
             },
             {
                 "op": "delete",
-                "node": "Hero/Narration/DebtToABandit"
+                "node": "Hero/Narration/debt_to_a_bandit"
             }
         ]
     },
