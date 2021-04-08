@@ -26,7 +26,7 @@
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "letter",
+                                    "Name": "document",
                                     "Attributes": {}
                                 }
                             ]
@@ -41,7 +41,7 @@
         "Instructions": [
             {
                 "op": "move",
-                "node": "bandit/items/letter",
+                "node": "bandit/items/document",
                 "to": "main_hero/items"
             },
             {
@@ -52,7 +52,7 @@
         ]
     },
     {
-        "Title": "Bribe the bandits",
+        "Title": "Bribe the bandits / Przekupstwo bandytów",
         "Title_Generic": "",
         "Description": "Bohater przekupuje bandytow celem odzyskania listu",
         "L_Side": {
@@ -73,7 +73,7 @@
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "letter",
+                                    "Name": "document",
                                     "Attributes": {}
                                 }
                             ]
@@ -88,7 +88,7 @@
         "Instructions": [
             {
                 "op": "move",
-                "node": "bandit/items/letter",
+                "node": "bandit/items/document",
                 "to":  "main_hero/items"
             },
             {
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "Title": "Nagroda za zabicie wilkow",
+        "Title": "Reward for killing wolves / Nagroda za zabicie wilkow",
         "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci",
         "Description": "Main_hero otrzymuje 5 pieniedzy w ramach podziekowan Common_man za zabicie wilkow",
         "L_Side": {
@@ -155,7 +155,7 @@
         ]
     },
     {
-        "Title": "Drink alcohol with friend",
+        "Title": "Drink alcohol with friend / Wypicie alkoholu z przyjacielem",
         "Title_Generic": "",
         "Description": "Bohater wypija butelke alkoholu z przyjacielem",
         "L_Side": {
@@ -273,7 +273,7 @@
         ]
     },
     {
-        "Title": "Make bandits argue",
+        "Title": "Make bandits argue / skłócenie bandytów",
         "Title_Generic": "",
         "Description": "Bohater odwraca uwage bandytow i kradnie list",
         "L_Side": {
@@ -299,7 +299,7 @@
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "letter",
+                                    "Name": "document",
                                     "Attributes": {}
                                 }
                             ]
@@ -314,7 +314,7 @@
         "Instructions": [
             {
                 "op": "move",
-                "node": "bandit/items/letter",
+                "node": "bandit/items/document",
                 "to":  "main_hero/items"
             },
             {
@@ -324,7 +324,7 @@
         ]
     },
     {
-        "Title": "Splacenie dlugu",
+        "Title": "Repaying debt / splacenie dlugu",
         "Title_Generic": "",
         "Description": "Main_hero splaca dlug u Bandit poprzez danie butelki alkoholu",
         "L_Side": {
@@ -377,9 +377,9 @@
         ]
     },
     {
-        "Title": "Pomoc Merchant",
+        "Title": "Help merchant / pomoc sprzedawcy",
         "Title_Generic": "",
-        "Description": "Main_hero pomaga Merchant w sprzataniu, znajduje dziwny kawalek metalu oraz otrzymuje wytrych w nagrode",
+        "Description": "Główny bohater pomaga sprzedawcy w sprzataniu, znajduje dziwny kawałek metalu oraz otrzymuje wytrych w nagrode",
         "L_Side": {
             "Locations": [
                 {
@@ -435,7 +435,7 @@
         ]
     },
     {
-        "Title": "Main hero gets wounded / Główny bohater zostaje zraniony",
+        "Title": "Main hero gets wounded / główny bohater zostaje zraniony",
         "Title_Generic": "",
         "L_Side": {
             "Locations": [
