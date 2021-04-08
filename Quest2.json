@@ -48,7 +48,7 @@
                 "op": "set",
                 "attribute": "bandit.isDead",
                 "value": "true"
-            }
+              }
         ]
     },
     {
@@ -89,7 +89,7 @@
             {
                 "op": "move",
                 "node": "bandit/items/letter",
-                "to": "main_hero/items"
+                "to":  "main_hero/items"
             },
             {
                 "op": "set",
@@ -128,7 +128,7 @@
                         },
                         {
                             "Name": "Common_man",
-                            "Comment": "Nie wymagamy pieniedzy zeby zapobiec sytuacji kiedy nie da sie odebrac nagrody (pieniadze powstaja)",
+                            "Comment":"Nie wymagamy pieniedzy zeby zapobiec sytuacji kiedy nie da sie odebrac nagrody (pieniadze powstaja)",
                             "Attributes": {},
                             "Characters": [],
                             "Items": []
@@ -151,11 +151,7 @@
                 "node": "Main_hero/Items/Wolfs_skin",
                 "to": "Common_man/Items"
             },
-            {
-                "op": "set",
-                "attribute": "Hero.Money",
-                "expr": "Hero.Money + 5"
-            }
+            { "op": "set", "attribute": "Hero.Money", "expr": "Hero.Money + 5" }
         ]
     },
     {
@@ -214,28 +210,28 @@
         "Title": "Main hero is kidnapped by bandits / Porwanie przez bandytów",
         "L_Side": {
             "Locations": [
+            {
+                "Id": "LocationA",
+                "Characters": [
                 {
-                    "Id": "LocationA",
-                    "Characters": [
-                        {
-                            "Name": "main_hero",
-                            "Attributes": {
-                                "isWounded": "true"
-                            }
-                        },
-                        {
-                            "Name": "bandit"
-                        }
-                    ]
+                    "Name": "main_hero",
+                    "Attributes": {
+                    "isWounded": "true"
+                    }
+                },
+                {
+                    "Name": "bandit"
                 }
+                ]
+            }
             ]
         },
         "Instructions": [
             {
-                "op": "move",
-                "nodes": "main_hero",
-                "to": "bandit/Characters",
-                "comment": "this represents that Hero is abducted by BanditA"
+            "op": "move",
+            "nodes": "main_hero",
+            "to": "bandit/Characters",
+            "comment": "this represents that Hero is abducted by BanditA"
             }
         ]
     },
@@ -245,34 +241,34 @@
         "Description": "Zabijamy wilka, z którego możemy następnie zebrać skórę",
         "L_Side": {
             "Locations": [
+            {
+                "Id": "LocationA",
+                "Characters": [
                 {
-                    "Id": "LocationA",
-                    "Characters": [
-                        {
-                            "Name": "main_hero"
-                        },
-                        {
-                            "Name": "wolf",
-                            "Attributes": {
-                                "isDead": "false"
-                            }
-                        }
-                    ]
+                    "Name": "main_hero"
+                },
+                {
+                    "Name": "wolf",
+                    "Attributes": {
+                    "isDead": "false"
+                    }
                 }
+                ]
+            }
             ]
         },
         "Instructions": [
             {
-                "op": "set",
-                "attribute": "wolf.isDead",
-                "value": "true"
+            "op": "set",
+            "attribute": "wolf.isDead",
+            "value": "true"
             },
             {
-                "op": "create",
-                "in": "Location/Items",
-                "node": {
-                    "Name": "wolfs_skin"
-                }
+            "op": "create",
+            "in": "Location/Items",
+            "node": {
+                "Name": "wolfs_skin"
+            }
             }
         ]
     },
@@ -287,15 +283,15 @@
                     "Attributes": {},
                     "Characters": [
                         {
-                            "Name": "bandit",
-                            "Characters": [
-                                {
-                                    "Name": "main_hero",
-                                    "Attributes": {},
-                                    "Characters": [],
-                                    "Items": []
-                                }
-                            ]
+                          "Name": "bandit",
+                          "Characters": [
+                            {
+                              "Name": "main_hero",
+                              "Attributes": {},
+                              "Characters": [],
+                              "Items": []
+                            }
+                          ]
                         },
                         {
                             "Name": "bandit",
@@ -319,7 +315,7 @@
             {
                 "op": "move",
                 "node": "bandit/items/letter",
-                "to": "main_hero/items"
+                "to":  "main_hero/items"
             },
             {
                 "op": "set",
@@ -372,7 +368,7 @@
             {
                 "op": "move",
                 "node": "Hero/Items/Bottle_with_alcohol",
-                "to": "Bandit/Items"
+                "to":  "Bandit/Items"
             },
             {
                 "op": "delete",
@@ -405,14 +401,14 @@
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "Picklock"
+                                    "Name":"Picklock"
                                 }
                             ]
                         }
                     ],
                     "Items": [
                         {
-                            "Name": "Strange_piece_of_metal"
+                            "Name":"Strange_piece_of_metal"
                         }
                     ],
                     "Connections": []
@@ -424,7 +420,7 @@
             {
                 "op": "move",
                 "node": "Market/Items/Strange_piece_of_metal",
-                "to": "Main_hero/Items"
+                "to":  "Main_hero/Items"
             },
             {
                 "op": "move",
@@ -443,23 +439,23 @@
         "Title_Generic": "",
         "L_Side": {
             "Locations": [
+            {
+                "Characters": [
                 {
-                    "Characters": [
-                        {
-                            "Name": "main_hero"
-                        },
-                        {
-                            "Id": "CharacterB"
-                        }
-                    ]
+                    "Name": "main_hero"
+                },
+                {
+                    "Id": "CharacterB"
                 }
+                ]
+            }
             ]
         },
         "Instructions": [
             {
-                "op": "set",
-                "attribute": "main_hero.isWounded",
-                "value": "true"
+            "op": "set",
+            "attribute": "main_hero.isWounded",
+            "value": "true"
             }
         ]
     }
