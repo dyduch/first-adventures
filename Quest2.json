@@ -484,7 +484,7 @@
     {
         "Title": "Wizard heals you / Czarodziej leczy twoje rany",
         "Title_Generic": "",
-        "Description: "Czarodziej cię leczy i daje ci alkohol na otarcie łez",
+        "Description": "Czarodziej cię leczy i daje ci alkohol na otarcie łez",
         "L_Side": {
             "Locations": [
                 {
@@ -520,7 +520,7 @@
     {
         "Title": "Miss buys alcohol / panna kupuje alkohol",
         "Title_Generic": "",
-        "Description: "Panna kupuje od ciebie alkohol za 5 złotych monet",
+        "Description": "Panna kupuje od ciebie alkohol za 5 złotych monet",
         "L_Side": {
             "Locations": [
                 {
