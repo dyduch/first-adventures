@@ -116,7 +116,7 @@
     {
         "Title": "Reward for killing wolves / Nagroda za zabicie wilkow",
         "Title_Generic": "Item acquireing from other character / Przejęcie obiektu od innej postaci",
-        "Description": "Główny bohater otrzymuje 5 pieniedzy w ramach podziekowań od chłopa za zabicie wilkow",
+        "Description": "Główny bohater otrzymuje 5 monet w ramach podziekowań od chłopa za zabicie wilkow",
         "L_Side": {
             "Locations": [
                 {
@@ -173,7 +173,7 @@
         "L_Side": {
             "Locations": [
                 {
-                    "Name": "port",
+                    "Name": "Port",
                     "Attributes": {},
                     "Characters": [
                         {
@@ -213,8 +213,8 @@
             },
             {
                 "op": "set",
-                "node": "friend/attributes/isFriendToMainHero",
-                "to": "true"
+                "attribute": "friend.isFriendToMainHero",
+                "value": "true"
             }
         ]
     },
@@ -287,7 +287,7 @@
     {
         "Title": "Make bandits argue / skłócenie bandytów",
         "Title_Generic": "",
-        "Description": "Bohater odwraca uwage bandytow i kradnie list",
+        "Description": "Bohater skłóca bandytów i kradnie list",
         "L_Side": {
             "Locations": [
                 {
@@ -330,15 +330,16 @@
                 "to":  "main_hero/items"
             },
             {
-                "op": "set",
-                "node": "bandit/attributes/isDistracted"
+                "op": "move",
+                "node": "bandit/characters/main_hero",
+                "to":  "cave/characters"
             }
         ]
     },
     {
-        "Title": "Repaying debt / splacenie dlugu",
+        "Title": "Repaying debt / Splacenie dlugu",
         "Title_Generic": "",
-        "Description": "Main_hero splaca dlug u Bandit poprzez danie butelki alkoholu",
+        "Description": "Główny bohater spłaca dług u bandytów poprzez danie butelki alkoholu",
         "L_Side": {
             "Locations": [
                 {
@@ -351,7 +352,7 @@
                             "Characters": [],
                             "Items": [
                                 {
-                                    "Name": "Bottle_with_alcohol",
+                                    "Name": "alcohol",
                                     "Attributes": {}
                                 }
                             ],
@@ -379,7 +380,7 @@
         "Instructions": [
             {
                 "op": "move",
-                "node": "Hero/Items/Bottle_with_alcohol",
+                "node": "Hero/Items/alcohol",
                 "to":  "Bandit/Items"
             },
             {
@@ -389,7 +390,7 @@
         ]
     },
     {
-        "Title": "Help merchant / pomoc sprzedawcy",
+        "Title": "Help merchant / Pomoc sprzedawcy",
         "Title_Generic": "",
         "Description": "Główny bohater pomaga sprzedawcy w sprzataniu, znajduje dziwny kawałek metalu oraz otrzymuje wytrych w nagrode",
         "L_Side": {
@@ -432,7 +433,8 @@
             {
                 "op": "move",
                 "node": "Market/Items/Strange_piece_of_metal",
-                "to":  "Main_hero/Items"
+                "to":  "Main_hero/Items",
+                "Comment": "Zespół 16 tego potrzebował"
             },
             {
                 "op": "move",
@@ -442,7 +444,15 @@
             {
                 "op": "set",
                 "attribute": "Merchant.Has_mess_in_store",
-                "value": false
+                "value": "false"
+            },
+            {
+                "op": "create",
+                "in": "main_hero/Narration",
+                "node": {
+                    "Name": "what_is_this_metal",
+                    "Attributes": {"Knowledge": "Podczas sprzątania sklepu znalazłem dziwny kawałek metalu. Może mi się do czegoś przyda?"}
+                }
             }
         ]
     },
@@ -469,6 +479,74 @@
             "attribute": "main_hero.isWounded",
             "value": "true"
             }
+        ]
+    },
+    {
+        "Title": "Wizard heals you / Czarodziej leczy twoje rany",
+        "Title_Generic": "",
+        "Description: "Czarodziej cię leczy i daje ci alkohol na otarcie łez",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Characters": [
+                        {
+                            "Name": "Main_hero",
+                            "Attributes": {
+                                "isWounded": "true"
+                            }
+                        },
+                        {
+                            "Name": "Wizard"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Instructions": [ 
+            {
+                "op": "delete",
+                "attribute": "Main_hero.isWounded"
+            },
+            {
+                "op": "create",
+                "in": "Main_hero/Items",
+                "comment": "Tutaj pojawia się butelka alkoholu żeby dało się wykonać quest",
+                "node": {
+                    "Name": "alcohol"
+                }
+            }
+        ]
+    },
+    {
+        "Title": "Miss buys alcohol / panna kupuje alkohol",
+        "Title_Generic": "",
+        "Description: "Panna kupuje od ciebie alkohol za 5 złotych monet",
+        "L_Side": {
+            "Locations": [
+                {
+                    "Characters": [
+                        {
+                            "Name": "Main_hero",
+                            "Items": [
+                                {
+                                    "Name": "alcohol"
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Miss"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Instructions": [ 
+            {
+                "op": "move",
+                "node": "Main_hero/items/alcohol",
+                "to": "Miss/items"
+            },
+            { "op": "set", "attribute": "Hero.Money", "expr": "Hero.Money + 5" }
         ]
     }
 ]
